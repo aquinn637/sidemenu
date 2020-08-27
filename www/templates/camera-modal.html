@@ -1,0 +1,31 @@
+<ion-modal-view>
+
+    <ion-header-bar class="bar bg-top-modal bar-header">
+
+        <h1 class="title">PHOTO</h1>
+
+        <button class="button button-clear button-light modal-icon" ng-click="closeCameraModal()">
+            <i class="icon ion-ios-close-empty"></i>
+        </button>
+
+    </ion-header-bar>
+
+    <ion-content>
+        <div class="list">
+
+            <div class="item item-icon-left item-icon-right" ng-click="takePicture()">
+                <i class="icon ion-camera"></i>
+                <span>EMPLOYEE_PHOTO_TAKE_PICTURE</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </div>
+
+            <div class="item item-icon-left item-icon-right" ng-click="openPhotoLibrary()">
+                <i class="icon ion-images"></i>
+                <span>EMPLOYEE_PHOTO_CHOOSE_GALLERY</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </div>
+
+        </div>
+    </ion-content>
+
+</ion-modal-view>

@@ -110,4 +110,77 @@ angular.module('starter.controllers', ['ngCordova'])
 
 
 
+    })
+
+    .controller('Main2Ctrl', function ($scope, $cordovaCamera, $ionicModal) {
+
+        console.log('CameraController2');
+
+        $scope.openCameraModeModal = function() {
+            $scope.cameraModal.show();
+        };
+
+        $scope.closeCameraModal = function() {
+            $scope.cameraModal.hide();
+
+        };
+
+        $ionicModal.fromTemplateUrl('templates/camera-modal.html', {
+            scope: $scope,
+            animation: 'slide-in-up'
+        }).then(function (modal) {
+            $scope.cameraModal = modal;
+        });
+
+        $scope.photo = {};
+
+        $scope.takePicture = function () {
+
+            var options = {
+                targetWidth: 150,
+                targetHeight: 150,
+                quality: 50,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.CAMERA,
+                allowEdit: true,
+                encodingType: Camera.EncodingType.JPEG,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: false,
+                correctOrientation: true
+            };
+
+            takePhotoOrGallery(options);
+        };
+
+        $scope.openPhotoLibrary = function () {
+
+            var options = {
+                quality: 50,
+                targetWidth: 150,
+                targetHeight: 150,
+                destinationType: Camera.DestinationType.DATA_URL,
+                sourceType: Camera.PictureSourceType.PHOTOLIBRARY,
+                allowEdit: true,
+                encodingType: Camera.EncodingType.JPEG,
+                popoverOptions: CameraPopoverOptions,
+                saveToPhotoAlbum: false,
+                correctOrientation: true
+            };
+
+            takePhotoOrGallery(options);
+        };
+
+        function takePhotoOrGallery(options) {
+
+            $cordovaCamera.getPicture(options).then(function (imageData) {
+                console.log(" PICTURE ", imageData);
+                $scope.photo.imageDataField = imageData;
+                $scope.photo.mediaTypeField = 'image/jpeg';
+            }, function (error) {
+                console.log(" ERROR ", error);
+            });
+        }
+
+
+
     });
