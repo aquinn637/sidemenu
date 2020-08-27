@@ -71,8 +71,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
                     }
                 }
             })
-            .state('app.main2', {
-                url: '/main2',
+            .state('app.second_main', {
+                url: '/second_main',
                 views: {
                     'menuContent': {
                         templateUrl: 'templates/main2.html',
