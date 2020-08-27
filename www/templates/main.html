@@ -1,0 +1,47 @@
+<ion-view view-title="main">
+    <ion-content>
+
+        <ion-list>
+
+            <div class="item">
+                <h2>My Info</h2>
+            </div>
+
+            <div class="item item-thumbnail-left item-icon-right">
+                <h2 class='text-left'>Joe Fresh</h2>
+                <p>DevOps</p>
+                <i class="icon ion-camera"></i>
+            </div>
+
+            <!-- photo -->
+            <div class="item text-center padding">
+                <img ng-src="data:{{photo.mediaTypeField}};base64,{{photo.imageDataField}}">
+            </div>
+
+            <!-- buttons -->
+            <div class="item item-icon-left item-icon-right" ng-click="takePicture()">
+                <i class="icon ion-camera"></i>
+                <span>EMPLOYEE_PHOTO_TAKE_PICTURE</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </div>
+
+            <div class="item item-icon-left item-icon-right" ng-click="openPhotoLibrary()">
+                <i class="icon ion-images"></i>
+                <span>EMPLOYEE_PHOTO_CHOOSE_GALLERY</span>
+                <i class="icon ion-ios-arrow-right"></i>
+            </div>
+
+        </ion-list>
+
+    </ion-content>
+
+    <div class="bar bar-footer no-padding bg-bottom">
+        <div class="button-bar">
+          <button
+              class="button button-positive" >
+            <span>OK</span>
+          </button>
+        </div>
+      </div>
+  </ion-view>
+  
